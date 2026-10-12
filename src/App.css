@@ -1,0 +1,121 @@
+
+/* Estilos generales de la aplicación Visa a Egipto */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #263238;
+}
+
+/* Encabezado principal */
+header {
+  background-color: #12345a;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Menú de navegación */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  background-color: #d4a84b;
+  padding: 16px;
+}
+
+nav a {
+  color: #172b45;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido de las secciones */
+main {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+section {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  color: #12345a;
+}
+
+/* Formulario de solicitud */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 1px solid #b7c2cc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #12345a;
+  color: white;
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #235889;
+}
+
+/* Pie de página */
+footer {
+  background-color: #12345a;
+  color: white;
+  text-align: center;
+  padding: 18px;
+}
+
+/* Adaptación a dispositivos móviles */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  section {
+    padding: 18px;
+  }
+}
+
