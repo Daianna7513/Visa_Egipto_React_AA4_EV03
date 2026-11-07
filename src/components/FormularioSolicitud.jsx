@@ -6,7 +6,7 @@ function FormularioSolicitud() {
   const [tipoVisa, setTipoVisa] = useState('')
   const [mensaje, setMensaje] = useState('')
 
-  function enviarSolicitud(evento) {
+  async function enviarSolicitud(evento) {
     evento.preventDefault()
 
     if (!nombre.trim() || !correo.trim() || !tipoVisa) {
@@ -14,8 +14,29 @@ function FormularioSolicitud() {
       return
     }
 
-    // Demostración front-end: no se envían datos al servidor.
-    setMensaje('Formulario validado correctamente (demostración).')
+    try {
+  const respuesta = await fetch('http://localhost:3000/solicitudes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      nombreCompleto: nombre,
+      correoElectronico: correo,
+      tipoVisa: tipoVisa
+    })
+  })
+
+  const datos = await respuesta.json()
+
+  if (respuesta.ok) {
+    setMensaje('Solicitud de visa registrada correctamente.')
+  } else {
+    setMensaje(datos.mensaje || 'No se pudo registrar la solicitud.')
+  }
+} catch (error) {
+  setMensaje('Error de conexión con el servidor.')
+}
   }
 
   return (
@@ -46,9 +67,9 @@ function FormularioSolicitud() {
           onChange={(evento) => setTipoVisa(evento.target.value)}
         >
           <option value="">Selecciona una opción</option>
-          <option value="turismo">Turismo</option>
-          <option value="negocios">Negocios</option>
-          <option value="estudios">Estudios</option>
+          <option value="Turismo">Turismo</option>
+          <option value="Negocios">Negocios</option>
+          <option value="Estudios">Estudios</option>
         </select>
 
         <button type="submit">Validar solicitud</button>
